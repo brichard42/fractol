@@ -6,41 +6,53 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/18 17:52:36 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/20 19:03:30 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-static void	math(void)
-{
-	t_point	pix;
-	t_point	zoom;
+#define X1 -2.55
+#define X2 1
+#define Y1 -1
+#define Y2 1
+#define MAX_ITER 1000
 
-	zoom.x = W_WIDTH / (1.0 - (-2.5));
-	zoom.x = W_HEIGTH / (1.0 - (-1));
-	while (pix.x <= W_WIDTH)
+static void	math(t_mlx *env)
+{
+	int		x;
+	int		y;
+	int		i;
+	double tmp;
+	t_point	zoom;
+	t_point c;
+	t_point	z;
+
+	zoom.x = W_WIDTH / (X2 - X1);
+	zoom.y = W_HEIGHT / (Y2 - Y1);
+	y = 0;
+	while (y <= W_HEIGHT)
 	{
-		while (pix.y <= W_HEIGHT)
+		x = 0;
+		while (x <= W_WIDTH)
 		{
-			x0 = scaled x coordinate of pixel (scaled to lie in the Mandelbrot X scale (-2.5, 1))
-			y0 = scaled y coordinate of pixel (scaled to lie in the Mandelbrot Y scale (-1, 1))
-			x = 0.0
-			y = 0.0
-			iteration = 0
-			max_iteration = 1000
-			while (x*x + y*y <= 2*2  AND  iteration < max_iteration)
+			c.x = x / zoom.x + X1;
+			c.y = y / zoom.y + Y1;
+			z.x = 0;
+			z.y = 0;
+			i = 0;
+			while (i <= MAX_ITER && z.x * z.x + z.y * z.y < 4)
 			{
-				xtemp = x*x - y*y + x0
-				y = 2*x*y + y0
-				x = xtemp
-				iteration = iteration + 1
+				tmp = z.x;
+				z.x = z.x * z.x - z.y * z.y + c.x;
+				z.y = 2 * z.y * tmp + c.y;
+				++i;
 			}
-			color = palette[iteration]
-			plot(Px, Py, color)
-			++pix.y;
+			if (i <= MAX_ITER)
+				image_pixel_put(&env->img, x, y, 0xFFFFFF);
+			++x;
 		}
-		++pix.x;
+		++y;
 	}
 }
 
@@ -78,7 +90,8 @@ static int	do_key_press(int keycode, void *param)
 	ft_bzero(env->img.data, W_HEIGHT * W_WIDTH * 4);
 	if (keycode >= 0 && keycode <= KEY_TAB && env->key_tab[keycode])
 		ft_printf("Function's got a call!\n");;
-	math();
+	math(env);
+	mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img.img_ptr, 0, 0);
 	return (0);
 }
 

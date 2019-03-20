@@ -6,19 +6,18 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:22:43 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/18 15:22:44 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/20 18:12:35 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		image_pixel_put(t_img *img, t_point *pt, int colour)
+int		image_pixel_put(t_img *img, int x, int y, int colour)
 {
-	if (((pt->x + pt->y * W_WIDTH) > W_HEIGHT * W_WIDTH) \
-			|| (pt->x + pt->y * W_WIDTH) < 0 || pt->x < 0 || pt->y < 0 \
-			|| pt->y >= W_HEIGHT || pt->x >= W_WIDTH \
-			|| (pt->x < 255 && pt->y < 210))
+	if (((x + y * W_WIDTH) > W_HEIGHT * W_WIDTH) \
+			|| (x + y * W_WIDTH) < 0 || x < 0 || y < 0 \
+			|| y >= W_HEIGHT || x >= W_WIDTH)
 		return (0);
-	img->data[(int)pt->x + (int)pt->y * W_WIDTH] = colour;
+	img->data[x + y * W_WIDTH] = colour;
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/18 16:40:29 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/20 19:04:19 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@
 # include <stdlib.h>
 # include <math.h>
 
-# define W_HEIGHT 720
-# define W_WIDTH 1080
+# define W_WIDTH 1920
+# define W_HEIGHT 1080
 
 # define CONTROLS		"            CONTROLS"
 # define S_ZOOM_IN		"    Zoom In     |     z"
@@ -43,7 +43,7 @@
 **	image_pixel_put.c
 */
 
-int				image_pixel_put(t_img *img, t_point *pt, int colour);
+int				image_pixel_put(t_img *img, int x, int y, int colour);
 
 /*
 **	fract_init.c
