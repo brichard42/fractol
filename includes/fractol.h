@@ -6,24 +6,18 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/20 19:04:19 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/21 17:01:44 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
-# ifdef __APPLE__
-#  include "TargetConditionals.h"
-#  if TARGET_OS_MAC
-#   define KEY_ESC 53
-#  endif
-# elif __linux__
-#  define KEY_ESC 65307
-# endif
+#ifndef FRACTOL_H
+# define FRACTOL_H
 
 # include "libft.h"
 # include "mlx.h"
 # include "colors.h"
+# include "keycodes.h"
+# include "mlx_events.h"
 # include "fract_struct.h"
 # include <stdlib.h>
 # include <math.h>
@@ -58,26 +52,16 @@ void			ft_init_env(t_mlx *env);
 void			mandelbrot(void);
 
 /*
-**	EVENT DEFINITIONS
+**	key_fun.c
 */
+
+void			zoom_in(void *env);
+void			zoom_out(void *env);
 
 /*
-**	Input Event Masks. Used as event-mask window attribute and as arguments
-**	to Grab requests.  Not to be confused with event names.
+**	mouse_fun.c
 */
 
-# define KEYPRESSMASK				(1L<<0)
-# define KEYRELEASEMASK				(1L<<1)
-# define STRUCTURENOTIFYMASK		(1L<<17)
-
-/*
-**	Event names.  Used in "type" field in XEvent structures.  Not to be
-**	confused with event masks above.  They start from 2 because 0 and 1
-**	are reserved in the protocol for errors and replies.
-*/
-
-# define KEYPRESS				2
-# define KEYRELEASE				3
-# define DESTROYNOTIFY			17
+void	center(void *env, int x, int y);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/03/18 16:43:34 by brichard         ###   ########.fr        #
+#    Updated: 2019/03/21 16:33:26 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,7 +54,9 @@ LIBS = libft \
 SRCS =	main.c \
 		fract_init.c \
 		image_pixel_put.c \
-		mandelbrot.c
+		mandelbrot.c \
+		key_fun.c \
+		mouse_fun.c
 
 ################################################################################
 #                                    COlORS                                    #

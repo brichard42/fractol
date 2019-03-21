@@ -6,12 +6,12 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:11 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/18 15:23:12 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/21 16:10:54 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_STRUCTS_H
-# define FDF_STRUCTS_H
+#ifndef FRACT_STRUCT_H
+# define FRACT_STRUCT_H
 
 # ifdef __APPLE__
 #  include "TargetConditionals.h"
@@ -28,6 +28,14 @@ typedef struct	s_point
 	double		y;
 }				t_point;
 
+typedef struct	s_graph
+{
+	t_point		max;
+	t_point		min;
+	t_point		zoom;
+	int			max_iter;
+}				t_graph;
+
 typedef struct	s_img
 {
 	void		*img_ptr;
@@ -41,6 +49,7 @@ typedef struct	s_mlx
 	void		*mlx_ptr;
 	void		*win_ptr;
 	t_img		img;
+	t_graph		graph;
 	t_keyfunc	key_tab[KEY_TAB];
 }				t_mlx;
 
