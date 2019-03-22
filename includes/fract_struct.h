@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:11 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/21 16:10:54 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/22 15:49:15 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ typedef struct	s_point
 
 typedef struct	s_graph
 {
-	t_point		max;
-	t_point		min;
+	t_point		d;
+	t_point		center;
 	t_point		zoom;
 	int			max_iter;
 }				t_graph;

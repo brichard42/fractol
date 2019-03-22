@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/21 17:37:43 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/22 15:55:45 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,16 @@ static void	math(t_mlx *env)
 	t_point c;
 	t_point	z;
 
-	env->graph.zoom.x = W_WIDTH / (env->graph.max.x - env->graph.min.x);
-	env->graph.zoom.y = W_HEIGHT / (env->graph.max.y - env->graph.min.y);
+	env->graph.zoom.x = W_WIDTH / env->graph.d.x;
+	env->graph.zoom.y = W_HEIGHT / env->graph.d.y;
 	y = 0;
 	while (y <= W_HEIGHT)
 	{
 		x = 0;
 		while (x <= W_WIDTH)
 		{
-			c.x = x / env->graph.zoom.x + env->graph.min.x;
-			c.y = y / env->graph.zoom.y + env->graph.min.y;
+			c.x = x / env->graph.zoom.x + (env->graph.center.x - env->graph.d.x / 2);
+			c.y = y / env->graph.zoom.y + (env->graph.center.y - env->graph.d.y / 2);
 			z.x = 0;
 			z.y = 0;
 			i = 0;
@@ -106,16 +106,24 @@ static int	do_mouse_press(int keycode, int x, int y, void *param)
 	return (0);
 }
 
+static void	init_graph(t_graph *graph)
+{
+	graph->max_iter = 50;
+	graph->d.x = 3.6;
+	graph->d.y = 2;
+	graph->center.x = -0.8;
+	graph->center.y = 0;
+
+}
+
 void		mandelbrot(void)
 {
 	t_mlx		env;
 
 	ft_init_env(&env);
-	env.graph.min.x = -2.5;
-	env.graph.max.y = 1.0;
-	env.graph.min.y = -1.0;
-	env.graph.max.x = ((env.graph.max.y - env.graph.min.y) * W_WIDTH / W_HEIGHT) + env.graph.min.x;
-	env.graph.max_iter = 50;
+	init_graph(&env.graph);
+	math(&env);
+	mlx_put_image_to_window(env.mlx_ptr, env.win_ptr, env.img.img_ptr, 0, 0);
 	mlx_hook(env.win_ptr, BUTTONPRESS, BUTTONPRESSMASK, do_mouse_press, \
 			(void *)&env);
 	mlx_hook(env.win_ptr, KEYPRESS, KEYPRESSMASK, do_key_press, (void *)&env);
