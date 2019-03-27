@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/21 17:01:44 by brichard         ###   ########.fr       */
+/*   Updated: 2019/03/27 19:17:46 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int				image_pixel_put(t_img *img, int x, int y, int colour);
 **	fract_init.c
 */
 
+void			init_graph(t_graph *graph);
 void			ft_init_env(t_mlx *env);
 
 /*
@@ -55,13 +56,16 @@ void			mandelbrot(void);
 **	key_fun.c
 */
 
-void			zoom_in(void *env);
-void			zoom_out(void *env);
+void			iter_inc(void *env);
+void			iter_dec(void *env);
+void			reset(void *env);
 
 /*
 **	mouse_fun.c
 */
 
-void	center(void *env, int x, int y);
+void			center(void *env, int x, int y);
+void			zoom_in(void *env, int x, int y);
+void			zoom_out(void *env, int x, int y);
 
 #endif
