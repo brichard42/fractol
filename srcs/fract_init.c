@@ -6,20 +6,19 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/27 19:16:59 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:47:42 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void	init_graph(t_graph *graph)
+void		init_graph(t_graph *graph)
 {
 	graph->max_iter = 50;
-	graph->d.x = 3.6;
-	graph->d.y = 2;
-	graph->center.x = -0.8;
-	graph->center.y = 0;
-
+	graph->re.max = 1.1;
+	graph->re.min = -2.5;
+	graph->im.max = 1;
+	graph->im.min = -1;
 }
 
 static void	ft_init_keytab(t_keyfunc *tab, int size)

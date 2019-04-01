@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/27 19:04:24 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/01 15:50:26 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,30 +17,33 @@ static void	math(t_mlx *env)
 	int		x;
 	int		y;
 	int		i;
-	double tmp;
-	t_point c;
+	double	tmp;
+	t_point	c;
 	t_point	z;
+	t_point	scale;
 
+	scale.x = (env->graph.re.max - env->graph.re.min) / W_WIDTH;
+	scale.y = (env->graph.im.max - env->graph.im.min) / W_HEIGHT;
 	y = 0;
 	while (y <= W_HEIGHT)
 	{
 		x = 0;
 		while (x <= W_WIDTH)
 		{
-		c.x = (env->graph.d.x * (((double)x / W_WIDTH) - 0.5)) + env->graph.center.x;
-		c.y = (env->graph.d.y * (((double)y / W_HEIGHT) - 0.5)) + env->graph.center.y;
+		c.x = (double)x * scale.x + env->graph.re.min;
+		c.y = (double)y * scale.y + env->graph.im.min;
 		z.x = 0.0;
 		z.y = 0.0;
 		i = 0.0;
-		while (i <= env->graph.max_iter && z.x * z.x + z.y * z.y < 4)
-		{
-			tmp = z.x;
+			while (i <= env->graph.max_iter && z.x * z.x + z.y * z.y < 4)
+			{
+				tmp = z.x;
 				z.x = z.x * z.x - z.y * z.y + c.x;
 				z.y = 2 * z.y * tmp + c.y;
 				++i;
 			}
 			if (i <= env->graph.max_iter)
-				image_pixel_put(&env->img, x, y, 0xFF00FF);
+				image_pixel_put(&env->img, x, y, 0xFF00FF * i);
 			++x;
 		}
 		++y;
@@ -108,11 +111,11 @@ void		mandelbrot(void)
 	init_graph(&env.graph);
 	math(&env);
 	mlx_put_image_to_window(env.mlx_ptr, env.win_ptr, env.img.img_ptr, 0, 0);
-	mlx_hook(env.win_ptr, BUTTONPRESS, BUTTONPRESSMASK, do_mouse_press, \
-			(void *)&env);
 	mlx_hook(env.win_ptr, KEYPRESS, KEYPRESSMASK, do_key_press, (void *)&env);
 	mlx_hook(env.win_ptr, KEYRELEASE, KEYRELEASEMASK, do_key_rel, (void *)&env);
 	mlx_hook(env.win_ptr, DESTROYNOTIFY, STRUCTURENOTIFYMASK, \
 			fract_close, (void *)&env);
+	mlx_hook(env.win_ptr, BUTTONPRESS, BUTTONPRESSMASK, do_mouse_press, \
+			(void *)&env);
 	mlx_loop(env.mlx_ptr);
 }

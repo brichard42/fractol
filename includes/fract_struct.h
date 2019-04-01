@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:11 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/27 18:50:54 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/01 13:54:58 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,16 @@ typedef struct	s_point
 	double		y;
 }				t_point;
 
+typedef struct	s_dif
+{
+	double		max;
+	double		min;
+}				t_dif;
+
 typedef struct	s_graph
 {
-	t_point		d;
-	t_point		center;
+	t_dif		re;
+	t_dif		im;
 	int			max_iter;
 }				t_graph;
 
