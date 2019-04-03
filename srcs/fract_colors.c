@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   colors.h                                           :+:      :+:    :+:   */
+/*   fract_colors.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 15:23:01 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/03 19:08:11 by brichard         ###   ########.fr       */
+/*   Created: 2019/04/02 13:19:14 by brichard          #+#    #+#             */
+/*   Updated: 2019/04/03 19:34:15 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_COLORS_H
-# define FDF_COLORS_H
+#include "fractol.h"
 
-# define WHITE 0xFFFFFF
-# define RED 0xFF0000
-# define YELLOW 0xFFFF00
-# define GREEN 0x00FF00
-# define BLUE 0x0000FF
-# define BLUE_1 0x090C9B
-# define BLUE_2 0x3D52D5
-# define BLUE_3 0x86A5D9
-# define ORANGE 0xF4A83D
-# define GOLD 0xFFD447
-
-#endif
+int		get_color(int iter_num, int iter_max)
+{
+	(void)iter_max;
+	if (iter_num % 5 == 0)
+		return (0x090C9B);
+	else if (iter_num % 5 == 1)
+		return (0x3D52D5);
+	else if (iter_num % 5 == 2)
+		return (0x86A5D9);
+	else if (iter_num % 5 == 3)
+		return (0xF4A83D);
+	else
+		return (0xFFD447);
+}

@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/27 19:17:46 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/03 19:08:03 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,11 @@ void			reset(void *env);
 void			center(void *env, int x, int y);
 void			zoom_in(void *env, int x, int y);
 void			zoom_out(void *env, int x, int y);
+
+/*
+**	fract_colors.c
+*/
+
+int		get_color(int iter_num, int iter_max);
 
 #endif

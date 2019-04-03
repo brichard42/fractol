@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/01 15:50:26 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/03 19:08:07 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	math(t_mlx *env)
 				++i;
 			}
 			if (i <= env->graph.max_iter)
-				image_pixel_put(&env->img, x, y, 0xFF00FF * i);
+				image_pixel_put(&env->img, x, y, get_color(i, env->graph.max_iter));
 			++x;
 		}
 		++y;
