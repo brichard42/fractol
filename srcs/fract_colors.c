@@ -6,23 +6,19 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 13:19:14 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/03 19:34:15 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/04 17:45:51 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		get_color(int iter_num, int iter_max)
+int		get_color(int iter_num)
 {
-	(void)iter_max;
-	if (iter_num % 5 == 0)
-		return (0x090C9B);
-	else if (iter_num % 5 == 1)
-		return (0x3D52D5);
-	else if (iter_num % 5 == 2)
-		return (0x86A5D9);
-	else if (iter_num % 5 == 3)
-		return (0xF4A83D);
+	int		test_byte;
+
+	test_byte = iter_num & 0x0F;
+	if (test_byte == 2)
+		return (GOLD);
 	else
-		return (0xFFD447);
+		return (iter_num * 0xDD);
 }
