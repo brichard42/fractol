@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/03 19:08:43 by brichard         ###   ########.fr        #
+#    Updated: 2019/04/05 15:50:57 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,8 @@ SRCS =	main.c \
 		mandelbrot.c \
 		key_fun.c \
 		mouse_fun.c \
-		fract_colors.c
+		fract_colors.c \
+		fract_core.c
 
 ################################################################################
 #                                    COlORS                                    #

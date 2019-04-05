@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/04 15:45:32 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/05 15:50:00 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,12 @@
 # define S_EXIT			"  Exit Program  |     esc"
 
 /*
+**	fract_core.c
+*/
+
+void			fract_core(int fract);
+
+/*
 **	image_pixel_put.c
 */
 
@@ -50,7 +56,7 @@ void			ft_init_env(t_mlx *env);
 **	mandelbrot.c
 */
 
-void			mandelbrot(void);
+void			mandelbrot(t_mlx *env, t_point scale, int x, int y);
 
 /*
 **	key_fun.c
