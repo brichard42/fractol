@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 15:48:23 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/09 16:53:57 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:27:12 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,12 @@ static int	do_key_press(int keycode, void *param)
 	t_mlx		*env;
 
 	env = (t_mlx *)param;
-	mlx_clear_window(env->mlx_ptr, env->win_ptr);
-	ft_bzero(env->img.data, W_HEIGHT * W_WIDTH * 4);
 	if (keycode >= 0 && keycode <= KEY_TAB && env->key_tab[keycode])
 	{
 		env->key_tab[keycode]((void *)env);
 		fract_threads(env);
 		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img.img_ptr, 0, 0);
+		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, ft_lltoa((int)env->graph.max_iter));
 	}
 	return (0);
 }
@@ -60,13 +59,12 @@ static int	do_mouse_press(int keycode, int x, int y, void *param)
 	int			i;
 
 	env = (t_mlx *)param;
-	mlx_clear_window(env->mlx_ptr, env->win_ptr);
-	ft_bzero(env->img.data, W_HEIGHT * W_WIDTH * 4);
 	if (keycode >= 0 && keycode <= MOU_TAB && env->mou_tab[keycode])
 	{
 		env->mou_tab[keycode]((void *)env, x, y);
 		fract_threads(env);
 		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img.img_ptr, 0, 0);
+		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, ft_lltoa((int)env->graph.max_iter));
 	}
 	return (0);
 }

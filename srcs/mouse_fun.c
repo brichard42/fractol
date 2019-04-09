@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 16:02:30 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/09 16:13:25 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:24:51 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ void	zoom_in(void *env, int x, int y)
 															+ tmp->graph.re.min;
 	mouse.y = (double)y * ((tmp->graph.im.max - tmp->graph.im.min) / W_HEIGHT) \
 															+ tmp->graph.im.min;
-	tmp->graph.re.max = mouse.x + ((tmp->graph.re.max - mouse.x) * 0.9);
-	tmp->graph.im.max = mouse.y + ((tmp->graph.im.max - mouse.y) * 0.9);
-	tmp->graph.re.min = mouse.x + ((tmp->graph.re.min - mouse.x) * 0.9);
-	tmp->graph.im.min = mouse.y + ((tmp->graph.im.min - mouse.y) * 0.9);
+	tmp->graph.re.max = mouse.x + ((tmp->graph.re.max - mouse.x) * 0.95);
+	tmp->graph.im.max = mouse.y + ((tmp->graph.im.max - mouse.y) * 0.95);
+	tmp->graph.re.min = mouse.x + ((tmp->graph.re.min - mouse.x) * 0.95);
+	tmp->graph.im.min = mouse.y + ((tmp->graph.im.min - mouse.y) * 0.95);
 }
 
 void	zoom_out(void *env, int x, int y)
@@ -57,8 +57,8 @@ void	zoom_out(void *env, int x, int y)
 															+ tmp->graph.re.min;
 	mouse.y = (double)y * ((tmp->graph.im.max - tmp->graph.im.min) / W_HEIGHT) \
 															+ tmp->graph.im.min;
-	tmp->graph.re.max = mouse.x + ((tmp->graph.re.max - mouse.x) * 1.1);
-	tmp->graph.im.max = mouse.y + ((tmp->graph.im.max - mouse.y) * 1.1);
-	tmp->graph.re.min = mouse.x + ((tmp->graph.re.min - mouse.x) * 1.1);
-	tmp->graph.im.min = mouse.y + ((tmp->graph.im.min - mouse.y) * 1.1);
+	tmp->graph.re.max = mouse.x + ((tmp->graph.re.max - mouse.x) * 1.05);
+	tmp->graph.im.max = mouse.y + ((tmp->graph.im.max - mouse.y) * 1.05);
+	tmp->graph.re.min = mouse.x + ((tmp->graph.re.min - mouse.x) * 1.05);
+	tmp->graph.im.min = mouse.y + ((tmp->graph.im.min - mouse.y) * 1.05);
 }

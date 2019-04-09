@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/09 16:01:09 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/09 17:32:28 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,4 +33,6 @@ void		mandelbrot(void *env, t_point scale, int x, int y)
 	}
 	if (i <= ((t_mlx*)env)->graph.max_iter)
 		image_pixel_put(&((t_mlx*)env)->img, x, y, get_color(i));
+	else
+		image_pixel_put(&((t_mlx*)env)->img, x, y, 0);
 }
