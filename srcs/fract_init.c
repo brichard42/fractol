@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/01 15:47:42 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/08 14:21:01 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,24 +19,6 @@ void		init_graph(t_graph *graph)
 	graph->re.min = -2.5;
 	graph->im.max = 1;
 	graph->im.min = -1;
-}
-
-static void	ft_init_keytab(t_keyfunc *tab, int size)
-{
-	while (--size >= 0)
-		tab[size] = NULL;
-	tab[UP_KEY] = iter_inc;
-	tab[DOWN_KEY] = iter_dec;
-	tab[R_KEY] = reset;
-}
-
-static void	ft_init_moutab(t_moufunc *tab, int size)
-{
-	while (--size >= 0)
-		tab[size] = NULL;
-	tab[SCROLLUP_KEY] = zoom_in;
-	tab[SCROLLDOWN_KEY] = zoom_out;
-	tab[BUT1_KEY] = center;
 }
 
 void		ft_init_env(t_mlx *env)
@@ -57,4 +39,5 @@ void		ft_init_env(t_mlx *env)
 		exit(5);
 	ft_init_keytab(env->key_tab, KEY_TAB);
 	ft_init_moutab(env->mou_tab, MOU_TAB);
+	ft_init_fracttab(env->fract_tab, MOU_TAB);
 }

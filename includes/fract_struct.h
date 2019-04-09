@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:11 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/05 15:26:31 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/09 15:06:10 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,12 @@
 #  if TARGET_OS_MAC
 #   define KEY_TAB 130
 #   define MOU_TAB 7
+#   define FRACT_TAB 3
 #  endif
 # elif __linux__
 #  define KEY_TAB 65453
 #  define MOU_TAB 7
+#  define FRACT_TAB 3
 # endif
 
 typedef struct	s_point
@@ -52,6 +54,7 @@ typedef struct	s_img
 
 typedef	void	(*t_keyfunc)(void *);
 typedef	void	(*t_moufunc)(void *, int, int);
+typedef	void	(*t_fractfunc)(void *, t_point, int, int);
 
 typedef struct	s_mlx
 {
@@ -61,6 +64,7 @@ typedef struct	s_mlx
 	t_graph		graph;
 	t_keyfunc	key_tab[KEY_TAB];
 	t_moufunc	mou_tab[MOU_TAB];
+	t_fractfunc	fract_tab[FRACT_TAB];
 }				t_mlx;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/05 15:50:00 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/09 16:54:16 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@
 # include "mlx_events.h"
 # include "fract_struct.h"
 # include <stdlib.h>
-# include <math.h>
+# include <pthread.h>
 
 # define W_WIDTH 1920
 # define W_HEIGHT 1080
+# define NTHREADS 8
 
 # define CONTROLS		"            CONTROLS"
 # define S_ZOOM_IN		"    Zoom In     |     z"
@@ -40,12 +41,6 @@
 void			fract_core(int fract);
 
 /*
-**	image_pixel_put.c
-*/
-
-int				image_pixel_put(t_img *img, int x, int y, int colour);
-
-/*
 **	fract_init.c
 */
 
@@ -53,10 +48,37 @@ void			init_graph(t_graph *graph);
 void			ft_init_env(t_mlx *env);
 
 /*
+**	ftab_init.c
+*/
+
+void			ft_init_keytab(t_keyfunc *tab, int size);
+void			ft_init_moutab(t_moufunc *tab, int size);
+void			ft_init_fracttab(t_fractfunc *tab, int size);
+
+/*
+**	fract_threads.c
+*/
+
+void			fract_threads(t_mlx *env);
+void			*set_limits(void *env);
+
+/*
+**	image_pixel_put.c
+*/
+
+int				image_pixel_put(t_img *img, int x, int y, int colour);
+
+/*
+**	fract_series.c
+*/
+
+void			fract_series(t_mlx *env, int x, int width);
+
+/*
 **	mandelbrot.c
 */
 
-void			mandelbrot(t_mlx *env, t_point scale, int x, int y);
+void			mandelbrot(void *env, t_point scale, int x, int y);
 
 /*
 **	key_fun.c
@@ -78,6 +100,6 @@ void			zoom_out(void *env, int x, int y);
 **	fract_colors.c
 */
 
-int		get_color(int iter_num);
+int				get_color(int iter_num);
 
 #endif

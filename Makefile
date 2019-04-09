@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/05 15:50:57 by brichard         ###   ########.fr        #
+#    Updated: 2019/04/09 11:23:58 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,13 +52,16 @@ LIBS = libft \
 ################################################################################
 
 SRCS =	main.c \
+		fract_core.c \
+		ftab_init.c \
 		fract_init.c \
-		image_pixel_put.c \
+		fract_threads.c \
+		fract_series.c \
 		mandelbrot.c \
 		key_fun.c \
 		mouse_fun.c \
 		fract_colors.c \
-		fract_core.c
+		image_pixel_put.c
 
 ################################################################################
 #                                    COlORS                                    #

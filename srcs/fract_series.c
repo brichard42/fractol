@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   fract_series.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 15:22:19 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/08 14:38:32 by brichard         ###   ########.fr       */
+/*   Created: 2019/04/08 13:48:15 by brichard          #+#    #+#             */
+/*   Updated: 2019/04/09 11:47:33 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int			main(int ac, char **av)
+void	fract_series(t_mlx *env, int x, int width)
 {
-	if (ac != 2)
-		return (0);
-	if (!(ft_strcmp(av[1], "mandelbrot"))) // PUT FUNC TAB HERE
-		fract_core(0);
-//	else if (!(ft_strcmp(av[1], "julia")))
-//		fract_core(1);
-//	else if (!(ft_strcmp(av[1], "tricorn")))
-//		fract_core(2);
-	return (0);
+	int		tx;
+	int		y;
+	t_point	scale;
+
+	scale.x = (env->graph.re.max - env->graph.re.min) / W_WIDTH;
+	scale.y = (env->graph.im.max - env->graph.im.min) / W_HEIGHT;
+	y = 0;
+	while (y <= W_HEIGHT)
+	{
+		tx = x;
+		while (tx <= width)
+		{
+			env->fract_tab[env->graph.type]((void *)env, scale, tx, y);
+			++tx;
+		}
+		++y;
+	}
 }
