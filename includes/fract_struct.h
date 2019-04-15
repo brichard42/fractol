@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:11 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/09 15:06:10 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/15 11:32:42 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@
 #  define FRACT_TAB 3
 # endif
 
+typedef struct	s_mouse
+{
+	int			x;
+	int			y;
+}				t_mouse;
+
 typedef struct	s_point
 {
 	double		x;
@@ -44,6 +50,7 @@ typedef struct	s_graph
 	t_dif		re;
 	t_dif		im;
 	int			max_iter;
+	t_mouse		mouse;
 }				t_graph;
 
 typedef struct	s_img

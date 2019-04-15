@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mandelbrot.c                                       :+:      :+:    :+:   */
+/*   julia.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/15 11:48:32 by brichard         ###   ########.fr       */
+/*   Created: 2019/04/15 11:48:42 by brichard          #+#    #+#             */
+/*   Updated: 2019/04/15 11:48:55 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		mandelbrot(void *env, t_point scale, int x, int y)
+void		julia(void *env, t_point scale, int x, int y)
 {
 	int		i;
 	double	tmp;
 	t_point	c;
 	t_point	z;
 
-	c.x = (double)(x * scale.x + ((t_mlx*)env)->graph.re.min);
-	c.y = (double)(y * scale.y + ((t_mlx*)env)->graph.im.min);
-	z.x = 0.0;
-	z.y = 0.0;
+	z.x = (double)(x * scale.x + ((t_mlx*)env)->graph.re.min);
+	z.y = (double)(y * scale.y + ((t_mlx*)env)->graph.im.min);
+	c.x = (double)(((t_mlx*)env)->graph.mouse.x * scale.x + ((t_mlx*)env)->graph.re.min);
+	c.y = (double)(((t_mlx*)env)->graph.mouse.y * scale.y + ((t_mlx*)env)->graph.im.min);
 	i = 0;
 	while (i <= ((t_mlx*)env)->graph.max_iter && z.x * z.x + z.y * z.y < 4)
 	{

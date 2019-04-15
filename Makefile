@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/09 11:23:58 by brichard         ###   ########.fr        #
+#    Updated: 2019/04/15 12:00:42 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,9 +57,10 @@ SRCS =	main.c \
 		fract_init.c \
 		fract_threads.c \
 		fract_series.c \
-		mandelbrot.c \
 		key_fun.c \
 		mouse_fun.c \
+		mandelbrot.c \
+		julia.c \
 		fract_colors.c \
 		image_pixel_put.c
 
@@ -116,6 +117,7 @@ $(OBJS_PATH) :
 	@$(call run_and_test, mkdir -p $@)
 
 $(LIB_PATH)/libft.a:
+	@echo "$(COM_COLOR)Compiling $(OBJ_COLOR)All Libs$(NO_COLOR)"
 	@make -C $(LIB_PATH)
 
 CLEAN_LIB = $(addprefix && make clean -C , $(LIB_PATH))
