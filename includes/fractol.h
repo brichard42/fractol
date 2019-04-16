@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 14:09:56 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:30:40 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,12 @@
 # define S_CENTER_V		"   Center View  |     p"
 # define S_RESET_V		"   Reset  View  |     r"
 # define S_EXIT			"  Exit Program  |     esc"
+
+/*
+**	main.c
+*/
+
+int				fract_close(void *param);
 
 /*
 **	fract_core.c
@@ -102,6 +108,12 @@ void			mandelbrot(void *env, int x, int y);
 */
 
 void			julia(void *env, int x, int y);
+
+/*
+**	zubieta.c
+*/
+
+void			zubieta(void *env, int x, int y);
 
 /*
 **	fract_colors.c

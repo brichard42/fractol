@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/15 12:00:42 by brichard         ###   ########.fr        #
+#    Updated: 2019/04/16 16:32:02 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ SRCS =	main.c \
 		mouse_fun.c \
 		mandelbrot.c \
 		julia.c \
+		zubieta.c \
 		fract_colors.c \
 		image_pixel_put.c
 

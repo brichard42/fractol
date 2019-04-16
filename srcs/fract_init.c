@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 13:58:46 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 17:04:54 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		init_graph(t_graph *graph)
 {
-	graph->max_iter = 50;
+	graph->max_iter = 51;
 	graph->re.max = 1.1;
 	graph->re.min = -2.5;
 	graph->im.max = 1;

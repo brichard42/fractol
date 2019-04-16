@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 16:02:30 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 14:02:27 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:55:29 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	lock_mouse(void *env, int x, int y)
 	t_mlx	*tmp;
 
 	tmp = (t_mlx *)env;
-	if (tmp->graph.lock_mouse == 0) 
+	if (tmp->graph.lock_mouse == 0)
 		tmp->graph.lock_mouse = 1;
 	else
 		tmp->graph.lock_mouse = 0;

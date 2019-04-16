@@ -6,22 +6,11 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 15:48:23 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 14:07:06 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:11:17 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-
-static int	fract_close(void *param)
-{
-	t_mlx	*env;
-
-	env = (t_mlx *)param;
-	mlx_destroy_image(env->mlx_ptr, env->img.img_ptr);
-	mlx_destroy_window(env->mlx_ptr, env->win_ptr);
-	exit(0);
-	return (0);
-}
 
 static int	do_key_rel(int keycode, void *param)
 {
@@ -46,8 +35,8 @@ static int	do_key_press(int keycode, void *param)
 	{
 		env->key_tab[keycode]((void *)env);
 		fract_threads(env);
-		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img.img_ptr, 0, 0);
-		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, ft_lltoa((int)env->graph.max_iter));
+		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, \
+														env->img.img_ptr, 0, 0);
 	}
 	return (0);
 }
@@ -64,8 +53,6 @@ static int	do_mouse_press(int keycode, int x, int y, void *param)
 		fract_threads(env);
 		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, \
 														env->img.img_ptr, 0, 0);
-		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, \
-											ft_lltoa((int)env->graph.max_iter));// GAFFE AU RETOUR DU LLTOA
 	}
 	return (0);
 }
@@ -87,8 +74,6 @@ static int	do_mouse_motion(int x, int y, void *param)
 		fract_threads(env);
 		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, \
 												env->img.img_ptr, 0, 0);
-		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, \
-											ft_lltoa((int)env->graph.max_iter));// GAFFE AU RETOUR DU LLTOA
 	}
 	return (0);
 }

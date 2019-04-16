@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:17:40 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 13:56:32 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 16:30:49 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,5 @@ void	ft_init_fracttab(t_fractfunc *tab, int size)
 		tab[size] = NULL;
 	tab[0] = mandelbrot;
 	tab[1] = julia;
-	//tab[2] = tricorn;
+	tab[2] = zubieta;
 }

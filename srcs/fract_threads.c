@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 11:04:58 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/09 16:53:06 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 15:30:19 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ void	fract_threads(t_mlx *env)
 
 void	*set_limits(void *env)
 {
-	static int  i = 0;
-	int         lims[2];
-	t_mlx   *f;
+	static int	i = 0;
+	int			lims[2];
+	t_mlx		*f;
 
 	f = (t_mlx *)env;
 	if (i >= NTHREADS)
-	    i = 0;
+		i = 0;
 	lims[0] = (W_WIDTH / NTHREADS) * i;
 	lims[1] = (W_WIDTH / NTHREADS) * ++i;
 	fract_series(f, lims[0], lims[1]);
