@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/08 14:21:01 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 13:58:46 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void		init_graph(t_graph *graph)
 	graph->re.min = -2.5;
 	graph->im.max = 1;
 	graph->im.min = -1;
+	graph->scale.x = (graph->re.max - graph->re.min) / W_WIDTH;
+	graph->scale.y = (graph->im.max - graph->im.min) / W_HEIGHT;
 }
 
 void		ft_init_env(t_mlx *env)

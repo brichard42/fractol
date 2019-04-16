@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 16:02:30 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/09 17:24:51 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:02:27 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	zoom_in(void *env, int x, int y)
 	tmp->graph.im.max = mouse.y + ((tmp->graph.im.max - mouse.y) * 0.95);
 	tmp->graph.re.min = mouse.x + ((tmp->graph.re.min - mouse.x) * 0.95);
 	tmp->graph.im.min = mouse.y + ((tmp->graph.im.min - mouse.y) * 0.95);
+	tmp->graph.scale.x = (tmp->graph.re.max - tmp->graph.re.min) / W_WIDTH;
+	tmp->graph.scale.y = (tmp->graph.im.max - tmp->graph.im.min) / W_HEIGHT;
 }
 
 void	zoom_out(void *env, int x, int y)
@@ -61,4 +63,17 @@ void	zoom_out(void *env, int x, int y)
 	tmp->graph.im.max = mouse.y + ((tmp->graph.im.max - mouse.y) * 1.05);
 	tmp->graph.re.min = mouse.x + ((tmp->graph.re.min - mouse.x) * 1.05);
 	tmp->graph.im.min = mouse.y + ((tmp->graph.im.min - mouse.y) * 1.05);
+	tmp->graph.scale.x = (tmp->graph.re.max - tmp->graph.re.min) / W_WIDTH;
+	tmp->graph.scale.y = (tmp->graph.im.max - tmp->graph.im.min) / W_HEIGHT;
+}
+
+void	lock_mouse(void *env, int x, int y)
+{
+	t_mlx	*tmp;
+
+	tmp = (t_mlx *)env;
+	if (tmp->graph.lock_mouse == 0) 
+		tmp->graph.lock_mouse = 1;
+	else
+		tmp->graph.lock_mouse = 0;
 }

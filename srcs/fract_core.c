@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 15:48:23 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/15 12:01:15 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:07:06 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,10 @@ static int	do_mouse_press(int keycode, int x, int y, void *param)
 	{
 		env->mou_tab[keycode]((void *)env, x, y);
 		fract_threads(env);
-		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img.img_ptr, 0, 0);
-		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, ft_lltoa((int)env->graph.max_iter));
+		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, \
+														env->img.img_ptr, 0, 0);
+		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, \
+											ft_lltoa((int)env->graph.max_iter));// GAFFE AU RETOUR DU LLTOA
 	}
 	return (0);
 }
@@ -74,13 +76,19 @@ static int	do_mouse_motion(int x, int y, void *param)
 	int			i;
 
 	env = (t_mlx *)param;
-	env->graph.mouse.x = x; //gaffe au debordement de fenetre
+	env->graph.mouse.x = x;
 	env->graph.mouse.y = y;
-	if (env->graph.type != 0)
+	if (env->graph.type != 0 && env->graph.lock_mouse == 1)
 	{
+		env->graph.c.x = (double)(env->graph.mouse.x * env->graph.scale.x + \
+										env->graph.re.min);
+		env->graph.c.y = (double)(env->graph.mouse.y * env->graph.scale.y + \
+										env->graph.im.min);
 		fract_threads(env);
-		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, env->img.img_ptr, 0, 0);
-		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, ft_lltoa((int)env->graph.max_iter));
+		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, \
+												env->img.img_ptr, 0, 0);
+		mlx_string_put(env->mlx_ptr, env->win_ptr, 30, 30, 0xFFFFFF, \
+											ft_lltoa((int)env->graph.max_iter));// GAFFE AU RETOUR DU LLTOA
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/15 11:49:50 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/16 14:09:56 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,12 +75,6 @@ int				image_pixel_put(t_img *img, int x, int y, int colour);
 void			fract_series(t_mlx *env, int x, int width);
 
 /*
-**	mandelbrot.c
-*/
-
-void			mandelbrot(void *env, t_point scale, int x, int y);
-
-/*
 **	key_fun.c
 */
 
@@ -95,12 +89,19 @@ void			reset(void *env);
 void			center(void *env, int x, int y);
 void			zoom_in(void *env, int x, int y);
 void			zoom_out(void *env, int x, int y);
+void			lock_mouse(void *env, int x, int y);
+
+/*
+**	mandelbrot.c
+*/
+
+void			mandelbrot(void *env, int x, int y);
 
 /*
 **	julia.c
 */
 
-void			julia(void *env, t_point scale, int x, int y);
+void			julia(void *env, int x, int y);
 
 /*
 **	fract_colors.c
