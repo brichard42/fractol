@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 16:30:40 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/17 11:54:18 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # include <stdlib.h>
 # include <pthread.h>
 
-# define W_WIDTH 1420
+# define W_WIDTH 1400
 # define W_HEIGHT 800
 # define NTHREADS 8
 
