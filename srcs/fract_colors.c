@@ -6,22 +6,30 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 13:19:14 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/17 11:51:31 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/17 18:34:54 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-int		get_color(int iter_num)
+int		get_color(int iter_num, int iter_max)
 {
-	if (iter_num % 5 == 0)
-		return (BLUE_1);
-	else if (iter_num % 5 == 1)
-		return (BLUE_2);
-	else if (iter_num % 5 == 2)
-		return (BLUE_3);
-	else if (iter_num % 5 == 3)
-		return (BLUE_4);
-	else
-		return (ORANGE);
+	int	color_tab[5];
+
+	(void)iter_max;
+/*	
+	color_tab[0] = BLACK;
+	color_tab[1] = BLACK_BEAN;
+	color_tab[2] = MAROON;
+	color_tab[3] = BOSTONU_RED;
+	color_tab[4] = RED;
+	*/
+	
+	color_tab[0] = DARK_OLD_GOLD;
+	color_tab[1] = METALLIC_SUNBURST;
+	color_tab[2] = DARK_KHAKI;
+	color_tab[3] = OLD_GOLD;
+	color_tab[4] = GOLD;
+	
+	return (color_tab[(iter_num / 3) % 5]);
 }

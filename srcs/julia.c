@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 11:48:42 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 17:03:51 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/17 16:43:52 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void		julia(void *env, int x, int y)
 		++i;
 	}
 	if (i < cenv->graph.max_iter)
-		image_pixel_put(&cenv->img, x, y, get_color(i));
+		image_pixel_put(&cenv->img, x, y, get_color(i, cenv->graph.max_iter));
 	else
 		image_pixel_put(&cenv->img, x, y, 0);
 }

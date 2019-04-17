@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/17 11:54:18 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/17 16:43:11 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,6 @@ void			zubieta(void *env, int x, int y);
 **	fract_colors.c
 */
 
-int				get_color(int iter_num);
+int				get_color(int iter_num, int iter_max);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/17 11:22:14 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/17 18:00:29 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ void		init_graph(t_graph *graph)
 	graph->re.max = (W_WIDTH * (graph->im.max - graph->im.min)) / W_HEIGHT + graph->re.min;
 	graph->scale.x = (graph->re.max - graph->re.min) / W_WIDTH;
 	graph->scale.y = (graph->im.max - graph->im.min) / W_HEIGHT;
+	//pour ajouter un poit de depart, modif lea facon dont je stock les coords de la ouse pour les avoir direct en coor relatives au graph
 }
 
 void		ft_init_env(t_mlx *env)
