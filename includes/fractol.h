@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 15:18:47 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 20:04:02 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 # include "fract_struct.h"
 # include <stdlib.h>
 # include <pthread.h>
+# include <math.h>
 
 # define W_WIDTH 1400
 # define W_HEIGHT 800
@@ -120,6 +121,6 @@ void			zubieta(void *env, int x, int y);
 **	fract_colors.c
 */
 
-int				get_color(t_graph *graph, int iter_num);
+int				get_color(t_graph *graph, double iter_num);
 
 #endif

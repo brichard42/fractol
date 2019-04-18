@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 16:39:20 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 15:13:02 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 20:05:44 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		mandelbrot(void *env, int x, int y)
 {
-	int		i;
+	double	i;
 	double	tmp;
 	t_point	c;
 	t_point	z;
@@ -26,15 +26,14 @@ void		mandelbrot(void *env, int x, int y)
 	z.x = 0.0;
 	z.y = 0.0;
 	i = 0;
-	while (i < cenv->graph.max_iter && z.x * z.x + z.y * z.y < 4)
+	while (z.x * z.x + z.y * z.y < (1 << 16) && (int)i < cenv->graph.max_iter)
 	{
-		tmp = z.x;
-		z.x = z.x * z.x - z.y * z.y + c.x;
-		z.y = 2 * z.y * tmp + c.y;
+		tmp = z.x * z.x - z.y * z.y + c.x;
+		z.y = 2 * z.y * z.x + c.y;
+		z.x = tmp;
 		++i;
 	}
 	if (i < cenv->graph.max_iter)
-		image_pixel_put(&cenv->img, x, y, get_color(&cenv->graph, i));
-	else
-		image_pixel_put(&cenv->img, x, y, 0);
+		i += 1.0 - (log((log(z.x * z.x + z.y * z.y) / 2) / log(2)) / log(2));
+	image_pixel_put(&cenv->img, x, y, get_color(&cenv->graph, i));
 }

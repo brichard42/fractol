@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/15 11:48:42 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 15:14:59 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 20:05:43 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void		julia(void *env, int x, int y)
 {
-	int		i;
+	double	i;
 	double	tmp;
 	t_point	z;
 	t_mlx	*cenv;
@@ -23,7 +23,7 @@ void		julia(void *env, int x, int y)
 	z.x = (double)(x * cenv->graph.scale.x + cenv->graph.re.min);
 	z.y = (double)(y * cenv->graph.scale.y + cenv->graph.im.min);
 	i = 0;
-	while (i < cenv->graph.max_iter && z.x * z.x + z.y * z.y < 4)
+	while (z.x * z.x + z.y * z.y < (1 << 16) && (int)i < cenv->graph.max_iter)
 	{
 		tmp = z.x;
 		z.x = z.x * z.x - z.y * z.y + cenv->graph.c.x;
@@ -31,7 +31,6 @@ void		julia(void *env, int x, int y)
 		++i;
 	}
 	if (i < cenv->graph.max_iter)
-		image_pixel_put(&cenv->img, x, y, get_color(&cenv->graph, i));
-	else
-		image_pixel_put(&cenv->img, x, y, 0);
+		i += 1.0 - (log((log(z.x * z.x + z.y * z.y) / 2) / log(2)) / log(2));
+	image_pixel_put(&cenv->img, x, y, get_color(&cenv->graph, i));
 }
