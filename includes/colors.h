@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:01 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/17 18:13:23 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 15:14:27 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,22 @@
 # define OLD_GOLD 0xD6B444
 # define GOLD 0xD8A736
 
-# define BLUE_6 0x86A5D9
-# define ORANGE 0xF4A83D
+# define BRICK_RED 0xD33F56
+# define LIGHT_CARMINE_PINK 0xEA6761
+# define PASTEL_ORANGE 0xFEC84D
+# define MAXIMUM_BLUE 0x41B0C1
+# define BOTTLE_GREEN 0x105B4F
+
+# define LUST 0xE21F1F
+# define VIVID_GAMBOGE 0xFF9400
+# define COPPER_RED 0xC67653
+# define LIVER 0x6D341D
+# define ZINNWALDITE_BROWN 0x2B1E14
+
+# define PALE_ROBIN_EGG_BLUE 0x9ACED3
+# define TURKISH_ROSE 0xBF7089
+# define VIVID_TANGERINE 0xF79C85
+# define FLAVESCENT 0xF7DC96
+# define PALE_GOLDENROD 0xF2EAA9
 
 #endif

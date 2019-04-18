@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:17:40 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 16:30:49 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 15:20:26 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	ft_init_keytab(t_keyfunc *tab, int size)
 	tab[UP_KEY] = iter_inc;
 	tab[DOWN_KEY] = iter_dec;
 	tab[R_KEY] = reset;
+	tab[TAB_KEY] = color_swap;
 }
 
 void	ft_init_moutab(t_moufunc *tab, int size)

@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/17 16:43:11 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 15:18:47 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void			fract_series(t_mlx *env, int x, int width);
 void			iter_inc(void *env);
 void			iter_dec(void *env);
 void			reset(void *env);
+void			color_swap(void *env);
 
 /*
 **	mouse_fun.c
@@ -119,6 +120,6 @@ void			zubieta(void *env, int x, int y);
 **	fract_colors.c
 */
 
-int				get_color(int iter_num, int iter_max);
+int				get_color(t_graph *graph, int iter_num);
 
 #endif

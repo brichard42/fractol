@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 15:48:23 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 15:11:17 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 14:12:27 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,14 +63,10 @@ static int	do_mouse_motion(int x, int y, void *param)
 	int			i;
 
 	env = (t_mlx *)param;
-	env->graph.mouse.x = x;
-	env->graph.mouse.y = y;
 	if (env->graph.type != 0 && env->graph.lock_mouse == 1)
 	{
-		env->graph.c.x = (double)(env->graph.mouse.x * env->graph.scale.x + \
-										env->graph.re.min);
-		env->graph.c.y = (double)(env->graph.mouse.y * env->graph.scale.y + \
-										env->graph.im.min);
+		env->graph.c.x = (double)(x * env->graph.scale.x + env->graph.re.min);
+		env->graph.c.y = (double)(y * env->graph.scale.y + env->graph.im.min);
 		fract_threads(env);
 		mlx_put_image_to_window(env->mlx_ptr, env->win_ptr, \
 												env->img.img_ptr, 0, 0);

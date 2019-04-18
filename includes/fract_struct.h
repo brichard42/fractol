@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:11 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 14:11:00 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/18 15:14:06 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,13 @@ typedef struct	s_dif
 typedef struct	s_graph
 {
 	int			type;
+	int			color_tab[5][5];
+	int			pal_num;
 	t_point		c;
 	t_dif		re;
 	t_dif		im;
 	t_point		scale;
 	int			max_iter;
-	t_mouse		mouse;
 	int			lock_mouse;
 }				t_graph;
 
