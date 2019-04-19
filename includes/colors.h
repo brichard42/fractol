@@ -6,12 +6,14 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:01 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 15:14:27 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/19 11:46:51 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_COLORS_H
 # define FDF_COLORS_H
+
+# define WHITE 0xFFFFFF
 
 # define BLACK 0x000000
 # define BLACK_BEAN 0x40000

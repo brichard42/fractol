@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 20:04:02 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/19 11:49:11 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@
 # define NTHREADS 8
 
 # define CONTROLS		"            CONTROLS"
-# define S_ZOOM_IN		"    Zoom In     |     z"
-# define S_ZOOM_OUT		"    Zoom Out    |     e"
-# define S_CHANGE_V		"   Change View  |     i"
-# define S_CENTER_V		"   Center View  |     p"
-# define S_RESET_V		"   Reset  View  |     r"
-# define S_EXIT			"  Exit Program  |     esc"
+# define S_CHANGE_C		"   Change Color |    Tab"
+# define S_ZOOM			"  Zoom In / out |    Mouse Scroll"
+# define S_CHANGE_F		"   Change Form  |    Middle Clic"
+# define S_CENTER_V		" Center_on_Clic |    Left Clic"
+# define S_RESET_V		"      Reset     |    r"
+# define S_EXIT			"  Exit Program  |    esc"
 
 /*
 **	main.c
@@ -67,7 +67,6 @@ void			ft_init_fracttab(t_fractfunc *tab, int size);
 */
 
 void			fract_threads(t_mlx *env);
-void			*set_limits(void *env);
 
 /*
 **	image_pixel_put.c
@@ -122,5 +121,11 @@ void			zubieta(void *env, int x, int y);
 */
 
 int				get_color(t_graph *graph, double iter_num);
+
+/*
+**	fract_legend.c
+*/
+
+void			fract_legend(t_mlx *env);
 
 #endif
