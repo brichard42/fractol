@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/19 11:46:16 by brichard         ###   ########.fr        #
+#    Updated: 2019/04/21 14:14:37 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,9 @@ SRCS =	main.c \
 		mandelbrot.c \
 		julia.c \
 		zubieta.c \
+		tricorn.c \
+		ship.c \
+		reverse_mandelbrot.c \
 		fract_colors.c \
 		image_pixel_put.c \
 		fract_legend.c

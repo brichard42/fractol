@@ -6,12 +6,12 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:01 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/19 11:46:51 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:03:56 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_COLORS_H
-# define FDF_COLORS_H
+#ifndef COLORS_H
+# define COLORS_H
 
 # define WHITE 0xFFFFFF
 

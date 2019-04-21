@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 13:56:55 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 15:18:22 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:59:56 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,23 @@ void	reset(void *env)
 
 void	color_swap(void *env)
 {
-	if (((t_mlx *)env)->graph.pal_num != 4)
-		++((t_mlx *)env)->graph.pal_num;
+	t_mlx	*tmp;
+
+	tmp = (t_mlx *)env;
+	if (tmp->graph.pal_num != 4)
+		++(tmp->graph.pal_num);
 	else
-		((t_mlx *)env)->graph.pal_num = 0;
+		tmp->graph.pal_num = 0;
+}
+
+void	fract_swap(void *env)
+{
+	t_mlx	*tmp;
+
+	tmp = (t_mlx *)env;
+	if (tmp->graph.type < FRACT_TAB - 1)
+		++(tmp->graph.type);
+	else
+		tmp->graph.type = 0;
+	init_graph(&tmp->graph);
 }

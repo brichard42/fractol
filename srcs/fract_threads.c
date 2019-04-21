@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/09 11:04:58 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/19 11:52:21 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 12:32:50 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ static void	do_threads(t_mlx *env)
 
 	i = 0;
 	while (i < NTHREADS)
-		pthread_create(&id[i++], NULL, set_limits, (void *)env);
+		if (pthread_create(&id[i++], NULL, set_limits, (void *)env) != 0)
+			exit(-1);
 	i = 0;
 	while (i < NTHREADS)
-		pthread_join(id[i++], NULL);
+		if (pthread_join(id[i++], NULL) != 0)
+			exit(-1);
 }
 
 void		fract_threads(t_mlx *env)

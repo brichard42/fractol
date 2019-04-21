@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/19 11:49:11 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 14:12:38 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 # include "libft.h"
 # include "mlx.h"
+# include "mlx_events.h"
 # include "colors.h"
 # include "keycodes.h"
-# include "mlx_events.h"
 # include "fract_struct.h"
 # include <stdlib.h>
 # include <pthread.h>
@@ -27,13 +27,15 @@
 # define W_HEIGHT 800
 # define NTHREADS 8
 
-# define CONTROLS		"            CONTROLS"
-# define S_CHANGE_C		"   Change Color |    Tab"
-# define S_ZOOM			"  Zoom In / out |    Mouse Scroll"
-# define S_CHANGE_F		"   Change Form  |    Middle Clic"
-# define S_CENTER_V		" Center_on_Clic |    Left Clic"
-# define S_RESET_V		"      Reset     |    r"
-# define S_EXIT			"  Exit Program  |    esc"
+# define CONTROLS		"   |_____________CONTROLS_____________|"
+# define S_CHANGE_C		"   | Change Color   |    [Tab]        |"
+# define S_CHANGE_FR	"   | Change Fractal |    [1]          |"
+# define S_CHANGE_FO	"   | Change Form    |    Middle Clic  |"
+# define S_ZOOM			"   | Zoom In / out  |    Mouse Scroll |"
+# define S_CENTER_V		"   | Center_on_Clic |    Left Clic    |"
+# define S_RESET_V		"   | Reset          |    [r]          |"
+# define S_EXIT			"   | Exit Program   |    [esc]        |"
+# define S_ENDLINE		"   |__________________________________|"
 
 /*
 **	main.c
@@ -88,6 +90,7 @@ void			iter_inc(void *env);
 void			iter_dec(void *env);
 void			reset(void *env);
 void			color_swap(void *env);
+void			fract_swap(void *env);
 
 /*
 **	mouse_fun.c
@@ -115,6 +118,24 @@ void			julia(void *env, int x, int y);
 */
 
 void			zubieta(void *env, int x, int y);
+
+/*
+**	tricorn.c
+*/
+
+void			tricorn(void *env, int x, int y);
+
+/*
+**	ship.c
+*/
+
+void			ship(void *env, int x, int y);
+
+/*
+**	reverse_mandelbrot.c
+*/
+
+void			reverse_mandelbrot(void *env, int x, int y);
 
 /*
 **	fract_colors.c

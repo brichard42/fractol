@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:22:19 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/19 11:33:18 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 14:14:18 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,16 @@ int			main(int ac, char **av)
 		fract_core(1);
 	else if (!(ft_strcmp(av[1], "zubieta")))
 		fract_core(2);
+	else if (!(ft_strcmp(av[1], "tricorn")))
+		fract_core(3);
+	else if (!(ft_strcmp(av[1], "ship")))
+		fract_core(4);
+	else if (!(ft_strcmp(av[1], "reverse")))
+		fract_core(5);
+	else if (!(ft_strcmp(av[1], "fifi")))
+		fract_core(0);
+	else if (!(ft_strcmp(av[1], "loulou")))
+		fract_core(0);
 	else
 		return (usage());
 	return (0);

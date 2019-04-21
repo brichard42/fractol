@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 13:48:15 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/16 14:10:33 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 12:00:11 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ void	fract_series(t_mlx *env, int x, int width)
 		tx = x;
 		while (tx <= width)
 		{
-			env->fract_tab[env->graph.type]((void *)env, tx, y);
+			if (env->fract_tab[env->graph.type] != NULL)
+				env->fract_tab[env->graph.type]((void *)env, tx, y);
 			++tx;
 		}
 		++y;

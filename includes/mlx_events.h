@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/21 12:35:05 by brichard          #+#    #+#             */
-/*   Updated: 2019/03/21 13:25:06 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 11:03:26 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@
 # define PROPERTYCHANGEMASK (1L<<22)
 # define COLORMAPCHANGEMASK (1L<<23)
 # define OWNERGRABBUTTONMASK (1L<<24)
+
+/*
+** EventCodes for mlx_hook function
+*/
 
 # define KEYPRESS 2
 # define KEYRELEASE 3

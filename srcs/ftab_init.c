@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:17:40 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/18 15:20:26 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 14:13:03 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	ft_init_keytab(t_keyfunc *tab, int size)
 	tab[DOWN_KEY] = iter_dec;
 	tab[R_KEY] = reset;
 	tab[TAB_KEY] = color_swap;
+	tab[K1_KEY] = fract_swap;
 }
 
 void	ft_init_moutab(t_moufunc *tab, int size)
@@ -39,4 +40,7 @@ void	ft_init_fracttab(t_fractfunc *tab, int size)
 	tab[0] = mandelbrot;
 	tab[1] = julia;
 	tab[2] = zubieta;
+	tab[3] = tricorn;
+	tab[4] = ship;
+	tab[5] = reverse_mandelbrot;
 }
