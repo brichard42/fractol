@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/21 14:13:54 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 18:16:18 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		init_graph(t_graph *graph)
 	graph->pal_num = 0;
 	make_color_tab(graph);
 	graph->max_iter = 51;
-	if (graph->type == 0 || graph->type == 3 || graph->type == 4 || graph->type == 5)
+	if (graph->type == 0 || graph->type == 3 || graph->type == 4)
 		graph->re.min = -2.5;
 	else if (graph->type == 1)
 	{
@@ -56,12 +56,12 @@ void		init_graph(t_graph *graph)
 	}
 	else
 	{
-		graph->re.min = -1.8;
+		graph->re.min = -1.7;
 		graph->c.x = 0.06;
 		graph->c.y = 0.155;
 	}
-	graph->im.min = (graph->type == 4 ? -1.5 : -1);
-	graph->im.max = 1;
+	graph->im.min = (graph->type == 4  || graph->type == 5 ? -1.7 : -1);
+	graph->im.max = 1.8;
 	graph->re.max = (W_WIDTH * (graph->im.max - graph->im.min)) / W_HEIGHT \
 																+ graph->re.min;
 	graph->scale.x = (graph->re.max - graph->re.min) / W_WIDTH;

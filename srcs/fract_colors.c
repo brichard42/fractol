@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/02 13:19:14 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/20 12:38:44 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/21 18:19:43 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,12 @@ int			get_color(t_graph *graph, double iter_num)
 	int		col;
 	double	deci;
 
+	if (iter_num < 0)
+		iter_num = 0;
 	color_1 = graph->color_tab[graph->pal_num][(((int)iter_num) % 5)];
 	color_2 = graph->color_tab[graph->pal_num][((((int)iter_num) + 1) % 5)];
 	deci = iter_num - (int)iter_num;
-	if (iter_num < graph->max_iter && iter_num >= 0)
+	if (iter_num < graph->max_iter)
 		col = (((0 << 24)) \
 						| ((get_rgb(color_1, color_2, 16, deci) << 16)) \
 						| ((get_rgb(color_1, color_2, 8, deci) << 8)) \
