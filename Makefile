@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/21 14:14:37 by brichard         ###   ########.fr        #
+#    Updated: 2019/04/27 17:12:57 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,8 @@ SRCS =	main.c \
 		fract_core.c \
 		ftab_init.c \
 		fract_init.c \
+		type_init.c \
+		type_init_2.c \
 		fract_threads.c \
 		fract_series.c \
 		key_fun.c \
@@ -65,6 +67,7 @@ SRCS =	main.c \
 		tricorn.c \
 		ship.c \
 		reverse_mandelbrot.c \
+		my_frac_1.c \
 		fract_colors.c \
 		image_pixel_put.c \
 		fract_legend.c

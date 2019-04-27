@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/21 14:12:38 by brichard         ###   ########.fr       */
+/*   Updated: 2019/04/27 17:13:15 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,24 @@ void			ft_init_env(t_mlx *env);
 void			ft_init_keytab(t_keyfunc *tab, int size);
 void			ft_init_moutab(t_moufunc *tab, int size);
 void			ft_init_fracttab(t_fractfunc *tab, int size);
+
+/*
+**	init_type.c
+*/
+
+void			init_mandelbrot(t_graph *graph);
+void			init_julia(t_graph *graph);
+void			init_zubieta(t_graph *graph);
+void			init_tricorn(t_graph *graph);
+void			init_ship(t_graph *graph);
+
+/*
+**	init_type_2.c
+*/
+
+void			init_reverse_mandelbrot(t_graph *graph);
+void			init_myfrac_1(t_graph *graph);
+void			init_myfrac_2(t_graph *graph);
 
 /*
 **	fract_threads.c
@@ -136,6 +154,12 @@ void			ship(void *env, int x, int y);
 */
 
 void			reverse_mandelbrot(void *env, int x, int y);
+
+/*
+**	my_frac_1.c
+*/
+
+void			my_frac_1(void *env, int x, int y);
 
 /*
 **	fract_colors.c
