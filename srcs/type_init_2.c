@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/27 16:17:05 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/27 17:12:04 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 12:23:09 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void init_reverse_mandelbrot(t_graph *graph)
 void init_myfrac_1(t_graph *graph)
 {
 	graph->re.min = -2.9;
-	graph->im.min = -1.2;
-	graph->im.max = 1.2;
+	graph->im.min = -1.6;
+	graph->im.max = 1.7;
 	graph->re.max = (W_WIDTH * (graph->im.max - graph->im.min)) / W_HEIGHT \
 																+ graph->re.min;
 }
@@ -33,8 +33,8 @@ void init_myfrac_1(t_graph *graph)
 void init_myfrac_2(t_graph *graph)
 {
 	graph->re.min = -2.9;
-	graph->im.min = -1.2;
-	graph->im.max = 1.2;
+	graph->im.min = -1.6;
+	graph->im.max = 1.7;
 	graph->re.max = (W_WIDTH * (graph->im.max - graph->im.min)) / W_HEIGHT \
 																+ graph->re.min;
 }

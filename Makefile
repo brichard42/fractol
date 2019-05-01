@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/04/27 17:12:57 by brichard         ###   ########.fr        #
+#    Updated: 2019/05/01 12:38:47 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,6 +68,7 @@ SRCS =	main.c \
 		ship.c \
 		reverse_mandelbrot.c \
 		my_frac_1.c \
+		my_frac_2.c \
 		fract_colors.c \
 		image_pixel_put.c \
 		fract_legend.c

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   my_frac_1.c                                        :+:      :+:    :+:   */
+/*   my_frac_2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/27 17:10:04 by brichard          #+#    #+#             */
-/*   Updated: 2019/05/01 12:36:21 by brichard         ###   ########.fr       */
+/*   Created: 2019/05/01 12:24:46 by brichard          #+#    #+#             */
+/*   Updated: 2019/05/01 12:36:13 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
 
-void		my_frac_1(void *env, int x, int y)
+void		my_frac_2(void *env, int x, int y)
 {
 	double	i;
 	double	tmp;
@@ -28,8 +28,11 @@ void		my_frac_1(void *env, int x, int y)
 	i = 0;
 	while (z.x * z.x + z.y * z.y < (1 << 16) && (int)i < cenv->graph.max_iter)
 	{
-		tmp = z.x * z.x * z.x - 3 * z.x * z.y * z.y + c.x;
-		z.y = 3 * z.y * z.x * z.x - z.y * z.y * z.y + c.y;
+		tmp = z.x * z.x * z.x * z.x * z.x - 10 * z.x * z.x * z.x * z.y * z.y \
+				+ 5 * z.x * z.y * z.y * z.y * z.y + c.x;
+		z.y = 5 * z.y * z.x * z.x * z.x * z.x \
+				- 10 * z.y * z.y * z.y * z.x * z.x \
+				+ z.y * z.y * z.y * z.y * z.y + c.y;
 		z.x = tmp;
 		++i;
 	}

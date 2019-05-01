@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:23:22 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/27 17:13:15 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 12:38:25 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -160,6 +160,12 @@ void			reverse_mandelbrot(void *env, int x, int y);
 */
 
 void			my_frac_1(void *env, int x, int y);
+
+/*
+**	my_frac_2.c
+*/
+
+void			my_frac_2(void *env, int x, int y);
 
 /*
 **	fract_colors.c

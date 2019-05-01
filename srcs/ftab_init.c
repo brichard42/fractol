@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/08 12:17:40 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/27 17:11:47 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 12:25:17 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,5 @@ void	ft_init_fracttab(t_fractfunc *tab, int size)
 	tab[4] = ship;
 	tab[5] = reverse_mandelbrot;
 	tab[6] = my_frac_1;
+	tab[7] = my_frac_2;
 }

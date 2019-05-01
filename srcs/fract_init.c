@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/04/27 17:00:30 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 12:22:45 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,12 @@ void		init_graph(t_graph *graph)
 		init_tricorn(graph);
 	else if (graph->type == 4)
 		init_ship(graph);
-	else
+	else if (graph->type == 5)
 		init_reverse_mandelbrot(graph);
+	else if (graph->type == 6)
+		init_myfrac_1(graph);
+	else if (graph->type == 7)
+		init_myfrac_2(graph);
 	graph->scale.x = (graph->re.max - graph->re.min) / W_WIDTH;
 	graph->scale.y = (graph->im.max - graph->im.min) / W_HEIGHT;
 }
