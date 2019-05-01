@@ -6,11 +6,10 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 15:58:26 by brichard          #+#    #+#             */
-/*   Updated: 2018/11/27 13:01:28 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 14:31:58 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include <unistd.h>
 
 void	ft_putendl(char const *s)
