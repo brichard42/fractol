@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/05 15:48:23 by brichard          #+#    #+#             */
-/*   Updated: 2019/05/01 13:33:22 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 19:19:42 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ static int	do_key_press(int keycode, void *param)
 static int	do_mouse_press(int keycode, int x, int y, void *param)
 {
 	t_mlx		*env;
-	int			i;
 
 	env = (t_mlx *)param;
 	if (keycode >= 0 && keycode <= MOU_TAB && env->mou_tab[keycode])
@@ -56,7 +55,6 @@ static int	do_mouse_press(int keycode, int x, int y, void *param)
 static int	do_mouse_motion(int x, int y, void *param)
 {
 	t_mlx		*env;
-	int			i;
 
 	env = (t_mlx *)param;
 	if (env->graph.type != 0 && env->graph.lock_mouse == 1)
