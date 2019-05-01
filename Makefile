@@ -6,7 +6,7 @@
 #    By: brichard <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/07 12:04:00 by brichard          #+#    #+#              #
-#    Updated: 2019/05/01 12:38:47 by brichard         ###   ########.fr        #
+#    Updated: 2019/05/01 13:55:53 by brichard         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,12 +40,21 @@ OBJS = $(SRCS:.c=.o)
 
 D_OBJS = $(addprefix $(OBJS_PATH)/, $(OBJS))
 
-
 ################################################################################
 #                                    LIBS                                      #
 ################################################################################
 
 LIBS = libft \
+
+################################################################################
+#                                  Headers                                     #
+################################################################################
+
+HEAD = colors.h \
+	   fract_struct.h \
+	   fractol.h \
+	   keycodes.h \
+	   mlx_events.h
 
 ################################################################################
 #                                    SRCS                                      #
@@ -113,16 +122,16 @@ COM_STRING   = "Compiling"
 
 all: $(NAME)
 
-$(NAME): $(LIB_PATH)/libft.a $(OBJS_PATH) $(INC) $(D_OBJS)
+$(NAME): $(LIB_PATH)/libft.a $(OBJS_PATH) $(D_OBJS)
 	@$(call run_and_test, $(CC) $(CFLAGS) -o $(NAME) $(D_OBJS) -I $(MLX_PATH)/include/ -L $(MLX_PATH)/lib/ -lmlx -framework OpenGL -framework AppKit -L ./$(LIB)/libft -lft )
 
 linux: $(OBJS_PATH) $(INC) $(D_OBJS)
 	@$(call run_and_test, $(CC) $(CFLAGS) -o $(NAME) $(D_OBJS) -I ./$(LIB)/libmlx/include/ -L ./$(LIB)/libmlx/ -lmlx -L ./$(LIB)/libft -lft -L/usr/X11/lib /usr/X11/lib/libmlx.a -lXext -lX11 -lm)
 
-$(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c
+$(OBJS_PATH)/%.o: $(SRCS_PATH)/%.c $(addprefix $(INC)/, $(HEAD))
 	@$(call run_and_test, $(CC) $(CFLAGS) -o $@ -c $< -I $(INC) $(INC_FLAGS))
 
-$(OBJS_PATH) :
+$(OBJS_PATH):
 	@$(call run_and_test, mkdir -p $@)
 
 $(LIB_PATH)/libft.a:

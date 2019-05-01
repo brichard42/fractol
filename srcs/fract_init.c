@@ -6,7 +6,7 @@
 /*   By: brichard <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/03/18 15:21:54 by brichard          #+#    #+#             */
-/*   Updated: 2019/05/01 12:22:45 by brichard         ###   ########.fr       */
+/*   Updated: 2019/05/01 13:24:04 by brichard         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void		ft_init_env(t_mlx *env)
 
 	if (!(env->mlx_ptr = mlx_init()))
 		exit(2);
-	if (!(env->win_ptr = mlx_new_window(env->mlx_ptr, W_WIDTH,
+	if (!(env->win_ptr = mlx_new_window(env->mlx_ptr, W_WIDTH, \
 											W_HEIGHT, "Fract'ol")))
 		exit(3);
 	if (!(env->img.img_ptr = mlx_new_image(env->mlx_ptr, W_WIDTH, W_HEIGHT)))
